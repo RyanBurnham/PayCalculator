@@ -1,7 +1,10 @@
 Pay calculator
-Version 1
+Version 1.1
 
 SPECIFICATION
+
+CHANGES 1.0->1.1
+	The computers now pays employees bonuses for working night hours (6pm-6am)
 
 
 OVERVIEW
@@ -42,6 +45,6 @@ For example, "17 8:00 16:30 $104.00" means that employee 17 worked from 8:00 a.m
 
 The lines in the output file are sorted in increasing order of employee number (as in the input file).
 
-All employees are paid $12 per hour.  The pay amounts are computed as exactly as possible. 
+All employees are paid $12 per hour for hours [6,18] and $17 for hours [0,6)U(18,24].  The pay amounts are computed as exactly as possible. 
 
 No other error-checking is performed in this version of the program.

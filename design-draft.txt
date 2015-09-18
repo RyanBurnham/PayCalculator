@@ -1,0 +1,20 @@
+Pay calculator
+Version 1
+
+DESIGN -- DRAFT
+
+Components of the program:
+
+  o A function that runs the calculator
+
+    Implementation note: Delegates the execution of the operations on times to separate functions.
+       
+  o A structure that stores each time as two integers, one for the hours, one for the minutes.
+  
+  o Functions for operations on times
+  
+      - Initializes a time to 99:99.
+      - Reads a time from an input stream.
+      - Prints a time to an output stream.
+      - Computes the difference, in hours, between two times.
+      

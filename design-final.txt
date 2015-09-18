@@ -1,0 +1,33 @@
+Pay calculator
+Version 1
+
+DESIGN -- FINAL
+
+
+  o const double kPayRate = 12;
+    
+
+  o int main()
+
+    Runs the calculator.  See program spec for details.
+
+    Implementation note: Uses Time to store times and delegates the time operations to the associated functions.
+
+
+  o Time
+  
+    A structure that represents a time as two integers, hours and minutes.  Times are on a 24-hour clock (0:00 to 23:59).
+    
+    Operations:
+    
+        void initialize(Time & t)
+            Sets t to 99:99.
+            
+        void read(Time & t, istream & in)
+            Reads t from in the format h:mm or hh:mm, where each h and m stands for a single digit.  No error-checking.
+            
+        void print(const Time & t, ostream & out) 
+            Prints t to out in the format described for read.
+        
+        double difference(const Time & t1, const Time & t2)
+            Computes the difference, in hours, between t1 and t2.  The difference is positive if t1 occurs after t2.  In other words, the difference is computed as "t1 - t2".

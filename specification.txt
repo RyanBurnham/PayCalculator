@@ -1,0 +1,47 @@
+Pay calculator
+Version 1
+
+SPECIFICATION
+
+
+OVERVIEW
+
+This program computes what each employee of a company should be paid for a day of work.  The program reads a file containing start and stop times for each employee.  The program prints the pay amounts to another file.
+
+
+DETAILS
+
+The program begins by asking the user for the names of the input and output files, as follows:
+
+    Name of input file: times.txt
+    Name of output file: report.txt
+
+After reading the name of the input file, the program attempts to open it. In case of failure, the message 
+
+    Could not open file.
+    
+is printed and the program halts. 
+
+After reading the name of the output file, the program attempts to open it. In case of failure, the message 
+
+    Could not open output file.
+
+is printed and the program halts. 
+
+The input file should contain one line for each employee.  Each line should contain an employee number, a start time and a stop time.  These three items are separated by blank spaces.  
+
+Employee numbers are positive integers.  Times are given on a 24-hour clock (0:00 to 23:59) in the format h:mm or hh:mm, where each h and m stands for a single digit. 
+
+For example, "17 8:00 16:30" means that employee 17 started working at 8:00 a.m. and stopped working at 4:30 p.m.
+
+The lines in the input file are sorted in increasing order of employee number.
+
+The program writes to the output file one line for each employee.  Each line consists of an employee number followed the start time, stop time and pay amount for that employee.  These four items are separated by a single space.  The times are printed in the same format as in the input file.  The pay amount is printed with a dollar sign and exactly two digits after the decimal point.
+
+For example, "17 8:00 16:30 $104.00" means that employee 17 worked from 8:00 a.m. to 4:30 p.m. and should be paid $104.  
+
+The lines in the output file are sorted in increasing order of employee number (as in the input file).
+
+All employees are paid $12 per hour.  The pay amounts are computed as exactly as possible. 
+
+No other error-checking is performed in this version of the program.

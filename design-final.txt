@@ -1,11 +1,27 @@
 Pay calculator
-Version 1
+Version 1.1
 
 DESIGN -- FINAL
 
 
+CHANGES 1.1 -> 1.2
+	
+			
+	Modifications:
+		Time becomes a class and an addition of abstraction. The functions: initialize, read, print, and print12 
+		become methods of Time. Difference becomes a method of Time, and has its name changed to minus. The
+		initializes, minus, and print become inline. The methods, print12, print, and minus become constant. 
+		The parameters of the functions that become methods' parameters were updated effectively.
+			
+
   o const double kPayRate = 12;
-    
+  o const double kBonus = 5;
+  
+  o const int kNumPaySectors = 3;
+  
+  o const double kPayRates[] = {kPayRate + kBonus, kPayRate, kPayRate + kBonus};
+  
+  o const int kPayBoundaries[] = {0, 6, 18, 24};
 
   o int main()
 
@@ -16,18 +32,45 @@ DESIGN -- FINAL
 
   o Time
   
-    A structure that represents a time as two integers, hours and minutes.  Times are on a 24-hour clock (0:00 to 23:59).
+ 	A structure that represents a time as two integers, hours and minutes.  Times are on a 24-hour clock (0:00 to 23:59).
     
+	Fields:
+		private:
+			int hours_; The hours digit of the time
+			int minutes_; The minutes digit of the time
+
+	Methods:
+		public:
+			inline void initialize()
+   				Sets t to 99:99.
+            
+     		inline void initialize(const int  & hour, const int & minute)
+       			Initializes the time with the hours set to hour and minutes set to minute. 0 <= hour <= 24, 0 <= minute < 60.
+       	
+  			inline void read(Time & t, istream & in)
+           		Reads t from in the format h:mm or hh:mm, where each h and m stands for a single digit.  No error-checking.
+            
+	        inline void print(ostream & out) const
+	            Prints t to out in the format described for read.
+	        
+	        void print12(ostream & out) const
+	       		prints the time as a 12 hour time to the output stream out.
+	       		
+	        inline double minus(const Time & other) const
+	            Computes the difference, in hours, between t1 and t2.  The difference is positive if t1 occurs after t2.  In other words, the difference is computed as "t1 - t2".
+	                       
     Operations:
     
-        void initialize(Time & t)
-            Sets t to 99:99.
-            
-        void read(Time & t, istream & in)
-            Reads t from in the format h:mm or hh:mm, where each h and m stands for a single digit.  No error-checking.
-            
-        void print(const Time & t, ostream & out) 
-            Prints t to out in the format described for read.
         
-        double difference(const Time & t1, const Time & t2)
-            Computes the difference, in hours, between t1 and t2.  The difference is positive if t1 occurs after t2.  In other words, the difference is computed as "t1 - t2".
+       
+        double amount_in_bounds(const double & range, const double & distance_from_lower, const double & distance_from_upper)
+        	Computes the amount of time within the sector of time, it is inclusive on the lower bound and exclusive to the upper bound. The two numbers passed will be the
+        	distances from the endpoints of the time duration with the lower_bound < upper_bound. The positive direction for both of the quantities passed is always positive
+        	towards the second boundary. The range passed in the distance between the upper bound and lower bound, and >0.
+       	
+       	double calculate_pay(const Time & in, const Time & out)
+       		Computes the pay of the worker that is entering work at the in time and leaving at the out time. The worker will recieve the amount of pay defined in the constant array, kPayRates.
+		
+      
+       	
+       	

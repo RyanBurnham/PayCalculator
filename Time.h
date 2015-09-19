@@ -23,6 +23,8 @@ public:
     void set_hours(int new_hours) { hours_ = new_hours; }
     void set_minutes(int new_minutes) { minutes_ = new_minutes; }
 
+    inline void operator=(int i);
+
     void set(int new_hours, int new_minutes = 0);
 
 private:
@@ -50,10 +52,10 @@ inline std::istream & operator>>(std::istream & in, Time & t)
     return in;
 }
 
-inline Time & operator=(const int i, Time & t)
+inline void Time::operator=(int i)
 {
-    t.set(i, 0);
-    return t;
+    set(i, 0);
+
 }
 
 inline std::ostream & operator<<(std::ostream & out, const Time & t)

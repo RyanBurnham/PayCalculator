@@ -43,7 +43,8 @@ int main()
 
     int employee_number = -1;
     Time start_time, stop_time;
-
+    start_time = 2;
+    cout << start_time;
     while (ifs_input >> employee_number) {
         ifs_input >> start_time >> stop_time;
 

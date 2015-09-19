@@ -50,6 +50,12 @@ inline std::istream & operator>>(std::istream & in, Time & t)
     return in;
 }
 
+inline Time & operator=(const int i, Time & t)
+{
+    t.set(i, 0);
+    return t;
+}
+
 inline std::ostream & operator<<(std::ostream & out, const Time & t)
 {
     out << t.hours() << ':';
